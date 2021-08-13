@@ -50,7 +50,8 @@ y_pred = pipeline_1.predict(X_test)
 from sklearn.metrics import accuracy_score
 print(accuracy_score(y_test, y_pred))
 print(pipeline_1.steps[1][1].coef_)
-
+import numpy as np
+print(np.std(X_train, 0)*pipeline_1.steps[1][1].coef_)
 
 # Select 3 Best features among 7 features
 from sklearn.feature_selection import SelectKBest, f_classif
