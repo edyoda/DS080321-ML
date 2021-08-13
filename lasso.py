@@ -44,6 +44,20 @@ print(coef)
 
 coef.plot(kind='bar')
 
+from sklearn.linear_model import Ridge
+ridge = Ridge(alpha = 2, normalize = True)
+ridge.fit(X_train, y_train)
+print(ridge.score(X_train, y_train))
+print(ridge.score(X_test, y_test))
+
+coef_ridge = pd.Series(ridge.coef_, predictors).sort_values()
+print(coef_ridge)
+
+coef_ridge.plot(kind='bar', title='Ridge Regression')
+
+
+
+
 
 
 
